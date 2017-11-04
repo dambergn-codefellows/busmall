@@ -7,6 +7,7 @@ Product.justViewed = [];
 Product.pics = [document.getElementById('left'), document.getElementById('center'), document.getElementById('right')];
 Product.tally = document.getElementById('tally');
 Product.totalClicks = 0;
+var votes = [];
 
 function Product(name) {
   this.name = name;
@@ -77,7 +78,63 @@ function showTally() {
     liEl.textContent = Product.all[i].name + ' has ' + Product.all[i].votes + ' votes in ' + Product.all[i].views + ' views';
     Product.tally.appendChild(liEl);
   }
+  createChart();
 }
 //event listener
 Product.container.addEventListener('click', handleClick);
 displayPics();
+
+function createChart() {
+  for(var i = 0; i < Product.names.length; i++) {
+    votes.push(Product.all[i].votes);
+  }
+  //this holds the value for the votes of each product image
+  var labelColors = [
+    'red',
+    'blue',
+    'yellow',
+    'green',
+    'purple',
+    'orange',
+    'red',
+    'blue',
+    'yellow',
+    'green',
+    'purple',
+    'orange',
+    'red',
+    'blue',
+    'yellow',
+    'green',
+    'purple', 
+    'orange',
+    'red',
+    'blue',
+    'yellow',
+    'green',
+    'purple',
+    'orange'
+  ];
+  var ctx = document.getElementById('chart').getContext('2d');
+
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: Product.names,
+      datasets: [{
+        label: '# of Votes',
+        data: votes,
+        backgroundColor: labelColors
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
