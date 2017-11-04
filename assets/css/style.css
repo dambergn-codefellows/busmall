@@ -1,0 +1,18 @@
+* {
+  color: salmon;
+  font-family: 'Helvetica';
+  outline: 1px dashed green;
+}
+
+#image_container{
+  float: right;
+}
+
+#tally{
+  flaot: left;
+}
+
+img {
+  width: 200px;
+  margin: 25px;
+}
