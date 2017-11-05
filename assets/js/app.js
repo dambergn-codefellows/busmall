@@ -106,7 +106,7 @@ function createChart() {
     'blue',
     'yellow',
     'green',
-    'purple', 
+    'purple',
     'orange',
     'red',
     'blue',
@@ -138,3 +138,17 @@ function createChart() {
     }
   });
 }
+
+function localData() {
+  if (localStorage.userResults) {
+    itemArray = JSON.parse(localStorage.userResults);
+    for (var i = 0; i < itemArray.length; i++) {
+      nameArray.push(itemArray[i].imageName);
+    }
+  }
+
+  else {
+    itemArray = [];
+    createItem();
+  }
+};
