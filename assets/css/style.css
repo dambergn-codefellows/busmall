@@ -1,3 +1,4 @@
+/*Locally stored fonts*/
 @font-face {
   font-family: 'Roboto-Black';
   src: url('../fonts/Roboto-Black.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
@@ -6,6 +7,10 @@
   color: salmon;
   font-family: 'Roboto-Black', 'Helvetica';
   /*outline: 1px dashed green;*/
+}
+
+h1, p{
+  text-align: center;
 }
 
 #image_container{
